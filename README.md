@@ -1,3 +1,6 @@
+
+
+
 # Laporan Proyek Machine Learning
 ### Nama : Endah Anisah Fauziyah
 ### Nim : 211351050
@@ -373,7 +376,7 @@ plt.show()
 ![Alt text](image-1.png)
 
 **Visualisasi Hasil Algoritma**
-![Alt text](image-2.png)
+![Alt text](image-2.png) <br>
 
 ![Alt text](image-3.png)
 
