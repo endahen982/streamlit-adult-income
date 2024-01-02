@@ -376,13 +376,35 @@ plt.show()
 ![Alt text](image-2.png)
 
 ![Alt text](image-3.png)
-## Evaluation
 
+## Evaluation
+Evaluation atau evaluasi pada aplikasi Adult Income dapat melibatkan beberapa aspek untuk mengukur sejauh mana aplikasi tersebut memenuhi tujuan dan memberikan nilai tambah. Berikut beberapa aspek evaluasi yang dapat dipertimbangkan:
+
+**1. Akurasi Prediksi:**<br>
+- Evaluasi seberapa baik model K-Nearest Neighbors (KNN) dapat memprediksi pendapatan orang dewasa berdasarkan fitur yang diberikan.
+Menggunakan metrik akurasi untuk mengukur sejauh mana prediksi model cocok dengan data aktual.
+
+**2. Confusion Matrix:**<br>
+- Mengevaluasi confusion matrix untuk melihat seberapa baik model dapat mengklasifikasikan antara kategori pendapatan yang lebih tinggi dan lebih rendah.
+- Memeriksa nilai True Positive, True Negative, False Positive, dan False Negative.
+- 
+**3. Area Under Curve (AUC) ROC:**<br>
+- Melihat performa model dengan menganalisis Area Under Curve dari Receiver Operating Characteristic (ROC).
+ROC memberikan wawasan tentang seberapa baik model dapat membedakan antara kelas positif dan negatif.
+
+**4. Cross-Validation Score:**<br>
+- Melakukan validasi silang untuk memastikan bahwa model memiliki kinerja yang baik pada berbagai subset data.
+Memastikan bahwa model tidak overfitting atau underfitting pada data tertentu.
 
 ## Deployment
 
-[Estimasi Harga Jual Mobil Bekas](https://app-estimasi-mobil-bekas-5pjjkz3v9p6aqhan2omwwz.streamlit.app/)
+[Aplikasi Prediksi Pendapatan Orang Dewasa](https://app-adult-income-1050.streamlit.app/)
 
-![Alt text](image.png)
+![image](https://github.com/endahen982/streamlit-adult-income/assets/148830351/e490fa57-6e85-4e39-af81-a50218ccbdb8)
+![image](https://github.com/endahen982/streamlit-adult-income/assets/148830351/eedc0fd6-a3ff-40f4-a0fc-4f91485dca1a)
+![image](https://github.com/endahen982/streamlit-adult-income/assets/148830351/43c59800-ddbc-4850-a20e-339d05e4e73c)
+
+
+
 
 
