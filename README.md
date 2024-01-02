@@ -132,7 +132,7 @@ warnings.filterwarnings('ignore')
 %matplotlib inline
 ```
 
-- **Data Discovery**<br>
+**Data Discovery**<br>
 - Membaca data dari file CSV:<br>
 ```bash
 df = pd.read_csv('adult-income-dataset/adult.csv')
@@ -170,12 +170,12 @@ ind_col = [col for col in df.columns if col != ['income']]
 dep_col = ['income']
 ```
 
-- **Exploratory Data Analysis (EDA)**<br>
+**Exploratory Data Analysis (EDA)** <br>
 Berikut adalah beberapa hasil Visualisasi Exploratory Data Analysis (EDA) :<br>
 ![Alt text](image-9.png)<br>
-Membuat peta panas (heatmap) untuk menunjukkan keberadaan nilai null (missing values) dalam DataFrame df. Setiap sel dengan nilai null akan ditandai dengan warna yang berbeda pada peta panas.
+Membuat heatmap untuk menunjukkan keberadaan nilai null (missing values) dalam DataFrame df. Setiap sel dengan nilai null akan ditandai dengan warna yang berbeda pada peta panas.<br>
 
-ika heatmap menunjukkan warna yang senada, seperti pink, pada seluruh peta, maka hal ini menunjukkan bahwa terdapat korelasi yang tinggi atau sempurna antara variabel-variabel yang diamati. Dengan kata lain, nilai-nilai dari variabel-variabel tersebut cenderung berubah bersamaan satu sama lain. Korelasi positif tinggi dapat diindikasikan oleh warna yang mendekati atau mencapai intensitas maksimum pada peta, sedangkan korelasi negatif tinggi dapat diindikasikan oleh warna yang mendekati atau mencapai intensitas minimum.<br>
+jika heatmap menunjukkan warna yang senada, seperti pink, pada seluruh peta, maka hal ini menunjukkan bahwa terdapat korelasi yang tinggi atau sempurna antara variabel-variabel yang diamati. Dengan kata lain, nilai-nilai dari variabel-variabel tersebut cenderung berubah bersamaan satu sama lain. Korelasi positif tinggi dapat diindikasikan oleh warna yang mendekati atau mencapai intensitas maksimum pada peta, sedangkan korelasi negatif tinggi dapat diindikasikan oleh warna yang mendekati atau mencapai intensitas minimum.
 
 Tetapi jangan cepat mengambil kesimpulan kausalitas hanya karena dua variabel berkorelasi tinggi, itu belum tentu berarti satu variabel menyebabkan yang lain. Korelasi dapat memberikan petunjuk untuk hubungan antarvariabel, tetapi analisis lebih lanjut mungkin diperlukan untuk memahami sebab-akibat antarvariabel tersebut.<hr>
 
@@ -225,7 +225,7 @@ Tingginya batang menunjukkan bahwa terdapat frekuensi kemunculan umur yang lebih
 
 Dari plot ini, dapat diinterpretasikan bahwa dalam kategori 'HS-grad', terdapat kelompok umur yang lebih tinggi atau lebih dominan dibandingkan dengan kategori pendidikan lainnya.<hr>
 
-- **Data Preprocessing**<br>
+**Data Preprocessing**<br>
 - Mengubah Data Kategorikal<br>
 Dengan melakukan ini untuk setiap kolom kategorikal, kita mengonversi nilai-nilai kategorikal menjadi bentuk numerik sehingga dapat digunakan oleh model pembelajaran mesin yang umumnya memerlukan input numerik.
 ```bash
@@ -244,14 +244,14 @@ Menyimpan kembali file csv yang sudah diubah datanya
 ```bash
 df.to_csv('adult-income.csv')
 ```
-- Seleksi Fitur <br>
+- **Seleksi Fitur:** <br>
 dilakukan seleksi fitur dengan memilih kolom-kolom tertentu dari DataFrame df untuk digunakan sebagai fitur (x). Kolom-kolom tersebut mencakup 'education', 'occupation', 'native-country', 'workclass', 'race', 'marital-status', 'gender', dan 'relationship'. Selain itu, kolom 'income' dipilih sebagai variabel target (y).
-- Pembagian Dataset:<br>
+- **Pembagian Dataset:** <br>
 membagi dataset menjadi dua bagian: satu untuk pelatihan model (X_train dan y_train) dan satu untuk menguji model (X_test dan y_test).
-- Standardisasi Fitur:<br>
+- **Standardisasi Fitur:** <br>
 digunakan untuk menghitung rata-rata dan deviasi standar dari setiap fitur pada data latihan (X_train), serta mengaplikasikan transformasi ke data latihan, digunakan untuk mengaplikasikan transformasi yang sama ke data uji (X_test). Hal ini dilakukan untuk memastikan bahwa skala fitur di data uji sesuai dengan skala fitur di data latihan.
 
-- **Modeling**
+**Modeling**
 Modeling dengan metode K-Nearest Neighbors (KNN) adalah proses membangun model prediktif menggunakan algoritma KNN.
 - **Training the model**<br>
 Melatih model KNN dengan menggunakan data pelatihan (X_train, y_train). Model ini menggunakan 8 tetangga terdekat, menggunakan metrik Minkowski, dan p=2 menunjukkan penggunaan Euclidean distance.
