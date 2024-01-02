@@ -77,9 +77,7 @@ Menyiapkan antarmuka Streamlit untuk menampilkan hasil visualisasi dan evaluasi 
 Menampilkan Confusion Matrix, Decision Regions, dan Elbow Method untuk memberikan wawasan lebih lanjut kepada pengguna.
 Data Preparation ini menciptakan dasar yang baik untuk memanfaatkan model KNN dalam memprediksi pendapatan orang dewasa melalui antarmuka aplikasi yang ramah pengguna dengan menggunakan Streamlit
 
-## Data Discovery And Profiling
-
-**Import Dataset Kaggle** <br>
+## Import Dataset Kaggle <br>
 Pertama-tama Menggunakan modul Colab untuk mengunggah file. Dalam hal ini, file yang diunggah adalah kaggle.json, yang berisi kunci API Kaggle.
 ```bash
 from google.colab import files
@@ -103,7 +101,7 @@ Membuat direktori baru untuk menyimpan dataset yang diunduh, Mengekstrak isi fil
 !ls adult-income-dataset
 ```
 
-**Import Library yang dibutuhkan** <br>
+## Import Library yang dibutuhkan <br>
 
 ```bash
 import numpy as np
@@ -132,7 +130,7 @@ warnings.filterwarnings('ignore')
 %matplotlib inline
 ```
 
-**Data Discovery** <br>
+## Data Discovery <br>
 - Membaca data dari file CSV:<br>
 ```bash
 df = pd.read_csv('adult-income-dataset/adult.csv')
@@ -253,14 +251,14 @@ digunakan untuk menghitung rata-rata dan deviasi standar dari setiap fitur pada 
 
 ## Modeling
 Modeling dengan metode K-Nearest Neighbors (KNN) adalah proses membangun model prediktif menggunakan algoritma KNN.
-**Training the model** <br>
+- **Training the model** <br>
 Melatih model KNN dengan menggunakan data pelatihan (X_train, y_train). Model ini menggunakan 8 tetangga terdekat, menggunakan metrik Minkowski, dan p=2 menunjukkan penggunaan Euclidean distance.
 ```bash
 classifier= KNeighborsClassifier(n_neighbors=8, metric='minkowski', p=2 )
 classifier.fit(X_train, y_train)
 ```
 
-**Evaluasi Model dan Prediksi** <br>
+- **Evaluasi Model dan Prediksi** <br>
 Mengukur akurasi model KNN pada data pengujian (X_test, y_test) dan mencetak hasilnya.
 ```bash
 score = classifier.score(X_test, y_test)
@@ -275,7 +273,7 @@ predict = classifier.predict(input_data)
 print('adult income :', predict)
 ```
 
-**Cross Validation** <br>
+- **Cross Validation** <br>
 Melakukan validasi silang (cross-validation) untuk mencari jumlah tetangga optimal (k) dengan menghitung akurasi rata-rata menggunakan 10 lipatan.
 ```bash
 accuracy_rate = []
@@ -287,7 +285,7 @@ for i in range(1, 40):
     accuracy_rate.append(score.mean())
 ```
 
-**Evaluasi Model dengan Cross Validation** <br>
+- **Evaluasi Model dengan Cross Validation** <br>
 Melakukan validasi silang untuk model KNN dengan k=8 dan mencetak skor validasi silang.
 ```bash
 knn = KNeighborsClassifier(n_neighbors = 8)
@@ -321,7 +319,7 @@ plt.show()
 ```
 ![Alt text](image.png) 
 
-**Best K based on Error Rate** <br>
+- **Best K based on Error Rate** <br>
 Mencari nilai k terbaik berdasarkan Error Rate yang dihitung. Dan hasil menunjukkan best k = 23
 ```bash
 error_rate = []
@@ -337,7 +335,7 @@ best_k_error_rate = k_values[np.argmin(error_rate)]
 print("Best k based on Error Rate:", best_k_error_rate)
 ```
 
-**Confusion Matrix and Classification Report**<br>
+- **Confusion Matrix and Classification Report**<br>
 Membuat model KNN terbaik berdasarkan nilai k terbaik yang ditemukan sebelumnya dan mengevaluasi kinerjanya menggunakan confusion matrix dan classification report.
 ```bash
 # Buat model KNN dengan nilai k terbaik
@@ -374,10 +372,17 @@ plt.show()
 ```
 ![Alt text](image-1.png)
 
-**Visualisasi Hasil Algoritma**
+## Visualisasi Hasil Algoritma <br>
 ![Alt text](image-2.png) <br>
 
 ![Alt text](image-3.png)
+
+## Simpan Model (Pickle) <br>
+Menyimpan model untuk melanjutkan pengerjaan di Visual Studio Code
+```bash
+filename = 'adult.sav'
+pickle.dump(knn,open(filename,'wb'))
+```
 
 ## Evaluation
 Evaluation atau evaluasi pada aplikasi Adult Income dapat melibatkan beberapa aspek untuk mengukur sejauh mana aplikasi tersebut memenuhi tujuan dan memberikan nilai tambah. Berikut beberapa aspek evaluasi yang dapat dipertimbangkan:
