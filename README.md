@@ -57,18 +57,18 @@ Pada hasil proyek ini saya menggunakan dataset yang tersedia di kaggle.com yaitu
 ## Data Preparation
 Aplikasi prediksi pendapatan orang dewasa dengan menggunakan Streamlit melibatkan serangkaian langkah untuk mempersiapkan dataset adult income agar dapat digunakan oleh model K-Nearest Neighbors (KNN). Berikut adalah langkah-langkah Data Preparation tersebut:
 
-- Loading Dataset:
+- **Loading Dataset:**
 Dataset adult income diimpor ke dalam aplikasi menggunakan fungsi load_data.
 Dataset ini mencakup berbagai variabel seperti usia, kelas pekerjaan, tingkat pendidikan, status pernikahan, dan lainnya.
 
-- Training Model:
+- **Training Model:**
 Model KNN dilatih menggunakan fungsi train_model dengan fitur-fitur yang relevan sebagai variabel independen (x) dan variabel target (y).
 
-- Visualization Data:
+- **Visualization Data:**
 Sebagian dari dataset digunakan untuk visualisasi hasil model, seperti Confusion Matrix, Decision Regions, dan Elbow Method.
 Visualisasi ini membantu pemahaman kinerja model dalam memprediksi pendapatan.
 
-- K-Nearest Neighbors (KNN):
+- **K-Nearest Neighbors (KNN):**
 Menggunakan KNN untuk membuat visualisasi decision boundary pada dataset.
 KNN digunakan untuk menunjukkan batas keputusan dalam memisahkan kategori pendapatan.
 Streamlit Interface:
@@ -79,7 +79,7 @@ Data Preparation ini menciptakan dasar yang baik untuk memanfaatkan model KNN da
 
 ## Data Discovery And Profiling
 
-**Import Dataset Kaggle**<br>
+**Import Dataset Kaggle** <br>
 Pertama-tama Menggunakan modul Colab untuk mengunggah file. Dalam hal ini, file yang diunggah adalah kaggle.json, yang berisi kunci API Kaggle.
 ```bash
 from google.colab import files
@@ -103,7 +103,7 @@ Membuat direktori baru untuk menyimpan dataset yang diunduh, Mengekstrak isi fil
 !ls adult-income-dataset
 ```
 
-**Import Library yang dibutuhkan**<br>
+**Import Library yang dibutuhkan** <br>
 
 ```bash
 import numpy as np
@@ -132,7 +132,7 @@ warnings.filterwarnings('ignore')
 %matplotlib inline
 ```
 
-**Data Discovery**<br>
+**Data Discovery** <br>
 - Membaca data dari file CSV:<br>
 ```bash
 df = pd.read_csv('adult-income-dataset/adult.csv')
@@ -170,7 +170,7 @@ ind_col = [col for col in df.columns if col != ['income']]
 dep_col = ['income']
 ```
 
-**Exploratory Data Analysis (EDA)** <br>
+## Exploratory Data Analysis (EDA) <br>
 Berikut adalah beberapa hasil Visualisasi Exploratory Data Analysis (EDA) :<br>
 ![Alt text](image-9.png)<br>
 Membuat heatmap untuk menunjukkan keberadaan nilai null (missing values) dalam DataFrame df. Setiap sel dengan nilai null akan ditandai dengan warna yang berbeda pada peta panas.<br>
@@ -182,11 +182,11 @@ Tetapi jangan cepat mengambil kesimpulan kausalitas hanya karena dua variabel be
 ![Alt text](image-8.png)<br>
 Membuat subplot korelasi untuk menunjukkan korelasi antara setiap pasangan variabel dalam DataFrame df. Nilai korelasi ditampilkan di setiap sel subplot dengan notasi angka dan warna yang mengindikasikan tingkat korelasi.<br>
 
-## Warna pada Heatmap:
+**Warna pada Heatmap:**
 - Jika warna mendekati biru tua, itu menunjukkan tingkat korelasi positif yang kuat antar fitur.
 - Jika warna mendekati biru muda atau putih, itu menunjukkan tingkat korelasi yang rendah atau mendekati nol.<br>
 
-## Nilai Anotasi (Annotated Values):
+**Nilai Anotasi (Annotated Values):**
 - Jika nilai anotasi (ditampilkan pada setiap sel heatmap) mendekati 1, itu menunjukkan korelasi positif yang sangat kuat.
 - Jika nilai mendekati -1, itu menunjukkan korelasi negatif yang sangat kuat.
 - Jika nilai mendekati 0, itu menunjukkan korelasi yang rendah atau tidak ada korelasi.<hr>
@@ -225,8 +225,8 @@ Tingginya batang menunjukkan bahwa terdapat frekuensi kemunculan umur yang lebih
 
 Dari plot ini, dapat diinterpretasikan bahwa dalam kategori 'HS-grad', terdapat kelompok umur yang lebih tinggi atau lebih dominan dibandingkan dengan kategori pendidikan lainnya.<hr>
 
-**Data Preprocessing**<br>
-- Mengubah Data Kategorikal<br>
+## Data Preprocessing <br>
+- **Mengubah Data Kategorikal** <br>
 Dengan melakukan ini untuk setiap kolom kategorikal, kita mengonversi nilai-nilai kategorikal menjadi bentuk numerik sehingga dapat digunakan oleh model pembelajaran mesin yang umumnya memerlukan input numerik.
 ```bash
 le = LabelEncoder()
@@ -251,16 +251,16 @@ membagi dataset menjadi dua bagian: satu untuk pelatihan model (X_train dan y_tr
 - **Standardisasi Fitur:** <br>
 digunakan untuk menghitung rata-rata dan deviasi standar dari setiap fitur pada data latihan (X_train), serta mengaplikasikan transformasi ke data latihan, digunakan untuk mengaplikasikan transformasi yang sama ke data uji (X_test). Hal ini dilakukan untuk memastikan bahwa skala fitur di data uji sesuai dengan skala fitur di data latihan.
 
-**Modeling**
+## Modeling
 Modeling dengan metode K-Nearest Neighbors (KNN) adalah proses membangun model prediktif menggunakan algoritma KNN.
-- **Training the model**<br>
+**Training the model** <br>
 Melatih model KNN dengan menggunakan data pelatihan (X_train, y_train). Model ini menggunakan 8 tetangga terdekat, menggunakan metrik Minkowski, dan p=2 menunjukkan penggunaan Euclidean distance.
 ```bash
 classifier= KNeighborsClassifier(n_neighbors=8, metric='minkowski', p=2 )
 classifier.fit(X_train, y_train)
 ```
 
-- **Evaluasi Model dan Prediksi**<br>
+**Evaluasi Model dan Prediksi** <br>
 Mengukur akurasi model KNN pada data pengujian (X_test, y_test) dan mencetak hasilnya.
 ```bash
 score = classifier.score(X_test, y_test)
@@ -275,7 +275,7 @@ predict = classifier.predict(input_data)
 print('adult income :', predict)
 ```
 
-- **Cross Validation**<br>
+**Cross Validation** <br>
 Melakukan validasi silang (cross-validation) untuk mencari jumlah tetangga optimal (k) dengan menghitung akurasi rata-rata menggunakan 10 lipatan.
 ```bash
 accuracy_rate = []
@@ -287,7 +287,7 @@ for i in range(1, 40):
     accuracy_rate.append(score.mean())
 ```
 
-- **Evaluasi Model dengan Cross Validation**<br>
+**Evaluasi Model dengan Cross Validation** <br>
 Melakukan validasi silang untuk model KNN dengan k=8 dan mencetak skor validasi silang.
 ```bash
 knn = KNeighborsClassifier(n_neighbors = 8)
@@ -321,7 +321,7 @@ plt.show()
 ```
 ![Alt text](image.png) 
 
-- **Best K based on Error Rate**<br>
+**Best K based on Error Rate** <br>
 Mencari nilai k terbaik berdasarkan Error Rate yang dihitung. Dan hasil menunjukkan best k = 23
 ```bash
 error_rate = []
@@ -337,7 +337,7 @@ best_k_error_rate = k_values[np.argmin(error_rate)]
 print("Best k based on Error Rate:", best_k_error_rate)
 ```
 
-- **Confusion Matrix and Classification Report**<br>
+**Confusion Matrix and Classification Report**<br>
 Membuat model KNN terbaik berdasarkan nilai k terbaik yang ditemukan sebelumnya dan mengevaluasi kinerjanya menggunakan confusion matrix dan classification report.
 ```bash
 # Buat model KNN dengan nilai k terbaik
@@ -382,19 +382,19 @@ plt.show()
 ## Evaluation
 Evaluation atau evaluasi pada aplikasi Adult Income dapat melibatkan beberapa aspek untuk mengukur sejauh mana aplikasi tersebut memenuhi tujuan dan memberikan nilai tambah. Berikut beberapa aspek evaluasi yang dapat dipertimbangkan:
 
-**1. Akurasi Prediksi:**<br>
+**1. Akurasi Prediksi:** <br>
 - Evaluasi seberapa baik model K-Nearest Neighbors (KNN) dapat memprediksi pendapatan orang dewasa berdasarkan fitur yang diberikan.
 Menggunakan metrik akurasi untuk mengukur sejauh mana prediksi model cocok dengan data aktual.
 
-**2. Confusion Matrix:**<br>
+**2. Confusion Matrix:** <br>
 - Mengevaluasi confusion matrix untuk melihat seberapa baik model dapat mengklasifikasikan antara kategori pendapatan yang lebih tinggi dan lebih rendah.
 - Memeriksa nilai True Positive, True Negative, False Positive, dan False Negative.
 - 
-**3. Area Under Curve (AUC) ROC:**<br>
+**3. Area Under Curve (AUC) ROC:** <br>
 - Melihat performa model dengan menganalisis Area Under Curve dari Receiver Operating Characteristic (ROC).
 ROC memberikan wawasan tentang seberapa baik model dapat membedakan antara kelas positif dan negatif.
 
-**4. Cross-Validation Score:**<br>
+**4. Cross-Validation Score:** <br>
 - Melakukan validasi silang untuk memastikan bahwa model memiliki kinerja yang baik pada berbagai subset data.
 Memastikan bahwa model tidak overfitting atau underfitting pada data tertentu.
 
