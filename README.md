@@ -35,7 +35,7 @@ Aplikasi prediksi pendapatan orang dewasa dengan menggunakan metode K-Nearest Ne
 
 ## Data Understanding
 Pada hasil proyek ini saya menggunakan dataset yang tersedia di kaggle.com yaitu "Adult Income" dataset ini berisi tentang berisi informasi tentang berbagai atribut atau fitur yang dapat digunakan untuk memprediksi apakah seseorang memiliki pendapatan di atas atau di bawah batas tertentu (misalnya, $50,000 per tahun). Data ini berjumlah 14 Atribut tetapi disini saya hanya menggunakan 8 atribut yaitu education,occupation,gender,marital-status,native-country,race,relationship, dan workclass.<br>
-[Adult Income ataset](https://www.kaggle.com/datasets/wenruliu/adult-income-dataset)  
+[Adult Income Dataset](https://www.kaggle.com/datasets/wenruliu/adult-income-dataset)  
 
 ### Variabel-variabel pada Adult Income dataset adalah sebagai berikut:
 - age             : Usia orang dewasa.
