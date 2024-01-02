@@ -5,7 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-import plotly.express as px
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve, auc
 from mlxtend.plotting import plot_decision_regions
