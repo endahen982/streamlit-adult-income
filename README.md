@@ -1,6 +1,6 @@
 ![Alt text](image-16.png)
 
-# Laporan Proyek Machine Learning
+# Laporan Proyek UAS Machine Learning
 ### Nama : Endah Anisah Fauziyah
 ### Nim : 211351050
 ### Kelas : TIF Pagi B
