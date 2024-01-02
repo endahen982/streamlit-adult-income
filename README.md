@@ -1,4 +1,4 @@
-![Alt text](image-14.png)
+![Alt text](image-15.png)
 
 # Laporan Proyek Machine Learning
 ### Nama : Endah Anisah Fauziyah
